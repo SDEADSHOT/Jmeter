@@ -1,0 +1,424 @@
+Jmeter
+
+Test Plan : is an container which is used to store the element required for execution.
+Workbench : is used to stored the elements for a temp basis.
+Thread Group : are the users.
+Ramp Up Period : after how many time another thread should be started.
+Example Let us assume we have 20 threads and we want to trigger each thread with time delay of 30 seconds then the Ramp Up Period will be (Number of thread * seconds you want to delay)
+Sampler : different types of Request
+Server Name or IP : Domain Name e.g www.amazon.in
+Listener : to Generate the Report
+
+Steps to be followed:
+-Start Jmeter
+-Create a Test Plan
+-Create a Thread Group
+-Add Sample
+-Add Listener
+-Run the Test Plan
+
+Overview:
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners (We can add Listeners in Test Plan Level, Thead Group Level, Request Level)
+Test Plan >> Add >> Assertions (We can add Assertions in Test Plan Level, Thead Group Level, Request Level)
+
+Listeners:
+We can use Listener to view the result in Table, Tree, Graph, Log formats.
+We can add Listeners in Test Plan Level, Thead Group Level, Request Level
+
+Some of the Listeners:
+-View Resuts in Table
+-View Results Tree
+-Graph Result
+-Aggregate Report
+-Aggregate Graph
+-Simple Data Writer
+-Assertion Result
+
+View Resut in Table:
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Result in Table.
+Click on Start
+
+Adding the Result to the file
+Write results to file / Read from file
+
+Latency : Time Taken to fetch the first byte.
+Sample Time/Response Time: Complete time in which the request is sent it is read by the server and will give the response.
+Connection Time: Time Taken to establish the connections.
+Samples: These are the users
+
+View Results Tree:
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Click on Start
+
+Graph Result:
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> Graph Result.
+Click on Start
+
+Aggregate Report:
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> Aggregate Report.
+Click on Start
+
+Samples: Number of threads
+Average: Average Response time
+Median : Half of the response took more than the mentioned response time and Half of the response took less than the mentioned response time
+90% Line:90 % of the request took lesser than equal to the mentioned response time
+95% Line:95 % of the request took lesser than equal to the mentioned response time
+99% Line:99 % of the request took lesser than equal to the mentioned response time
+Min : Minimum Response time
+MAx : Maximum Response time
+Error %: Will be displayed if we get any error
+Throughput : Amount of Request processed in a given time (here we have seen in seconds)
+
+Median: Half of the request are executed with in this time and half of the request took more time.
+Throughput: Number of Requests/Time as of now i have seen minutes
+
+Aggregate Graph:
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> Aggregate Graph >> Click on the Graph tab.
+Click on Start
+
+Simple Data Writer:
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> Simple Data Writer.
+Mention the CSV/txt file path.
+Click on Start.
+
+Assertion Result:
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> Assertion Result.
+Click on Start.
+
+Assertions
+We can add Assertions in Test Plan Level, Thead Group Level, Request Level.
+We can use Assertions to check.
+
+Some of the Assertions
+-Response Assertions
+-Size Assertion
+-Duration Assertion
+-HTML Assertion
+-XML Assertion
+-XML Schema Assertion
+-XPath Assertion
+-JSON Assertion (Covered in API Performance Testing)
+
+Response Assertion
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Add >> Listeners >> Assertion Results.
+Test Plan >> Add >> Assertions >> Response Assertion >> Select the Field to Test >> Select the Pattern Matching Rules >> Add the Pattern.
+Click on Start.
+
+Size Assertion
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Add >> Listeners >> Assertion Results.
+Test Plan >> Add >> Assertions >> Size Assertion >> Mention the byte size and the operator.
+Click on Start.
+
+Duration Assertion
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Add >> Listeners >> Assertion Results.
+Test Plan >> Add >> Assertions >> Duration Assertion >> Mention the time in millisecond.
+Click on Start.
+
+Note: It will check the Sample time in the table (View Resuts in Table)
+Let us assume we have mentioned a Duration in milliseconds as 400 then in this case it will compare the duration with the Sample time in the table (View Resuts in Table) if we have the Sample time more than 400 then it is considered as failed
+
+HTML Assertion
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Add >> Listeners >> Assertion Results.
+Test Plan >> Add >> Assertions >> HTML Assertion >> Mention the thresholds.
+Click on Start.
+
+Note:
+Error Threshold: To provide the count of errors which can be ignored and considered the request as passed. 
+Warning Threshold: The number of warnings which can be ignored and considered the request as passed.
+If any of the Threshold reaches more than the mentioned number it will be considered as fail.
+We can store it only in a txt file format.
+
+XML Assertion
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Add >> Listeners >> Assertion Results.
+Test Plan >> Add >> Assertions >> XML Assertion.
+Click on Start.
+
+XML Schema Assertion
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Add >> Listeners >> Assertion Results.
+Test Plan >> Add >> Assertions >> XML Schema Assertion >> Mention the file name (So that it will compare)
+Click on Start.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+XPath Assertion
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Add >> Listeners >> Assertion Results.
+Test Plan >> Add >> Assertions >> XPath Assertion >> Select the Use Tidy (tolerant parser) checkbox >> Mention the XPath in the "XPath assertion field"
+Click on Start.
+
+Timer
+-Constant Timer
+-Uniform Random Timer
+
+Constant Timer
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler( 3 Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Add >> Timer >> Constant Timer >> Mention the time in milliseconds
+Click on Start.
+
+Note:Let us assume we have 3 requests then it will wait for the mentioned time before executing any of the requests
+
+Uniform Random Timer
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler( 3 Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Add >> Timer >> Uniform Random Timer >> Mention the time in milliseconds in both the fields
+Click on Start.
+
+Note: Implicitly formula used will be 
+0.X * Random Delay Max + Constant Delay Offset
+
+Logic Controller
+Note: It is used only in the Thread Group Level
+
+API Performance Testing 
+-Rest API : https://reqres.in/
+-SOAP API : http://www.dneonline.com/calculator.asmx   (OR)   http://www.dneonline.com/calculator.asmx?op=Add
+
+Rest API and JSON Assertion
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Mention the base url in the Server Name or IP text field.
+Mention the Http Request here in this case we are dealing with get.
+Mention the path in the Path text field.
+Mention the query in the Paramter Tab >> Enter the name and Value >> Click on Add.
+Test Plan >> Add >> Config Element >> HTTP Header Manager >> Mention the name and Value(If Applicable)
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Add >> Assertions >> JSON Assertion >> Mention the JSON path in the Assert JSON Path exists field.
+Select the Additionally assert value checkbox >> Mention the expected value in the Expected Value field.
+Click on Start.
+
+SOAP
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Mention the base url in the Server Name or IP text field.
+Mention the Http Request here in this case we are dealing with post.
+Mention the path in the Path text field.
+Add the body >> And Mention the value as per the data type.
+Request Level >> Add >> Config Element >> HTTP Header Manager >> Add the Name and the Value. (Only Content Type and Soap Action)
+Test Plan >> Add >> Assertions >> XML Assertion
+Click on Start.
+
+Recording in Jmeter
+Test Plan >> Add >> Threads >> Thread Group(Login) >> Add Number of threads in (Number of Threads (users))
+Test Plan >> Add >> Threads >> Thread Group(Home Page) >> Add Number of threads in (Number of Threads (users))
+Test Plan >> Add >> Non-Test Elements >> HTTP(S) Test Script Recorder
+Open the Chrome Browser >> Open Settings >> Go to System >> Under Manual Proxy Setup click on Set up >> Turn on the Use a proxy server >> Enter the port in the ------
+HTTP(S) Test Script Recorder >> Mention the Thread Group in the Target Controller drop down >> Click on Start 
+
+Note : When you change the proxy settings you won't be able to acccess the URL
+
+Blaze Meter Extensions for Chrome
+
+Running and Generating the Report for Jmeter via CLI
+command : jmeter -n -t "location of the .jmx file" -l "location of the excelfile.csv file" -e -o "path of the folder inside which the report to be generated"
+Note: The folder in which we want to genrate the report should be empty or else we will get an error
+-n : means non gui
+-t : location of the .jmx file
+-l : location of the excelfile.csv file
+-e : export
+-o : on the path of the folder inside which the report to be generated
+
+Note:When we are mentioning the loop count as 4 what will happen here is first request will hit for 4 times and then second request will hit for 4 times.
+
+Practicals
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users))
+Test Plan >> Thread Group >> Add >> Sampler(Requests)
+Test Plan >> Add >> Listeners >> View Results in Table
+First check if it is executing perfectly
+Save the Test Plan. (I have saved it as Test Plan.jmx)
+Open the cmd and change the directory to the path in which the .jmx file is saved
+Enter the command : jmeter -n -t "Test Plan.jmx" -l "C:\Users\Administrator\Desktop\CLI_1.csv" -e -o "C:\Program Files\Jmeter\apache-jmeter-5.6.3\apache-jmeter-5.6.3\bin\HTMLReports"
+Open the CLI.csv file for validation
+
+In Report
+Apdex Score
+Excellent: 1.0 to 0.94
+Good: 0.93 to 0.85
+Fair: 0.84 to 0.70
+Poor: 0.69 to 0.49
+Bad: 0.48 to 0.0
+
+Samples in the report means number of users
+
+Without Parameterization
+URL : https://openweathermap.org/current
+We have the 
+https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+https://api.openweathermap.org/data/2.5/weather?q={city name},{country code}&appid={API key}
+https://api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}
+https://api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key}
+Note:API key will be generated once you are logged in and create your own for reference we can use (ad767c157a86579b7173fcb96c46fa1a)
+To download the city id in json format: http://bulk.openweathermap.org/sample/
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Note : As we have the query parameters just mention the path in the Path text field and mention the name in Parameters table 
+Test Plan >> Add >> Listeners >> View Results Tree.
+
+Parameterization
+URL : https://openweathermap.org/current
+We have the 
+https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+https://api.openweathermap.org/data/2.5/weather?q={city name},{country code}&appid={API key}
+https://api.openweathermap.org/data/2.5/weather?q={city name},{state code},{country code}&appid={API key}
+https://api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key}
+Note:API key will be generated once you are logged in and create your own for reference we can use (ad767c157a86579b7173fcb96c46fa1a)
+To download the city id in json format: http://bulk.openweathermap.org/sample/
+
+-Using User Defined Variable
+-Using CSV Data Set Config
+
+Using User Defined Variable
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Thread Group >> Add >> Config Element >> User Defined Variable
+Add the Name and Value >> Click on Add
+In the url/parameters mention the variable as : ${variable_name}
+Click on Start
+
+Using CSV Data Set Config
+Create a .csv file add the data to it(Here in this case i am using the "https://api.openweathermap.org/data/2.5/weather?id={city id}&appid={API key}" so i have mentioned id as the column name)
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Thread Group >> Add >> Config Element >> CSV Data Set Config
+Mention the .csv file path and Make sure the Delimeter field is empty
+In the url/parameters mention the variable as : ${variable_name}
+Click on Start
+
+Note:We have mentioned the variable name in the url/parameters as per the name of the column i.e it will leave the first line and start fetching the data from secomd line now if we want to fetch the data from the first line itself then mention the variable name without $ symbol in the ( CSV Data Set Config >> Variable names ) and set the Ignore first line as false (so that first line won't be ignored)
+
+Controller
+-Loop Controller
+-Include Controller
+-Interleave Controller
+-Once Only Controller
+-Random Controller
+-Random Order Controller
+-Simple Controller
+-Module Controller
+-Test Fragment
+
+Loop Controller
+Let us assume we have a particular request to run for a mentioned number in that case we go with Loop Controller
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Thread Group >> Add >> Logic Controller >> Loop Controller
+Add the Request to the Loop Controller
+Click on Start
+
+Include Controller
+Include Controller can be used to add the .jmx file
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Thread Group >> Add >> Logic Controller >> Include Controller
+Mention the path of the .jmx file in the Include Controllers filename
+Add the Controller (Simple Controller) to the Module Controller
+Click on Start
+
+Interleave Controller
+When we want to execute the request only one at a time in a Sequential Order
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Thread Group >> Add >> Logic Controller >> Interleave Controller
+Add the Request(atleast 2 requests) to the Interleave Controller
+Click on Start
+
+Once Only Controller
+When we want to execute the request only once even though we have mentioned the loop count as more than one
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Mention the Loop Count as 4
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Thread Group >> Add >> Logic Controller >> Once Only Controller
+Click on Start
+
+Random Controller
+When we want to execute the request only one at a time in a Random Order
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Thread Group >> Add >> Logic Controller >> Random Controller
+Add the Request(atleast 2 requests) to the Random Controller
+Click on Start
+
+Random Order Controller
+When we want to execute all the request randoomly
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Thread Group >> Add >> Logic Controller >> Random Order Controller
+Add the Request(atleast 5 requests) to the Random Order Controller
+Click on Start
+
+Simple Controller
+We have groups in selenium the same way we will add the request to the Simple Controller
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Thread Group >> Add >> Logic Controller >> Simple Controller
+Add the Request to the Simple Controller
+Click on Start
+
+Module Controller
+Module Controller can be used to run other Logic Controllers
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Thread Group >> Add >> Logic Controller >> Simple Controller
+Test Plan >> Thread Group >> Add >> Logic Controller >> Module Controller
+Add the Request to the Simple Controller
+Add the Controller (Simple Controller) to the Module Controller
+Click on Start
+
+Test Fragment
+Test Fragment is an alternate of Simple Controller, the functionality will be same as that of Simple Controller
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Results Tree.
+Test Plan >> Thread Group >> Add >> Test Fragment >> Test Fragment
+Add the Request to the Test Fragment
+Click on Start
