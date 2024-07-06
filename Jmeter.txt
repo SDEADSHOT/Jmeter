@@ -422,3 +422,156 @@ Test Plan >> Add >> Listeners >> View Results Tree.
 Test Plan >> Thread Group >> Add >> Test Fragment >> Test Fragment
 Add the Request to the Test Fragment
 Click on Start
+
+Regular Expressions
+List of regular expressions
+java
+Only matches with java text, but won't match with Java
+
+[Jj]ava
+Matches with either Java or java
+
+ye[sp]
+Matches with either yes or yep
+
+[sfk]it
+Matches with sit or fit or kit
+
+.ava
+. for single character which can be anything alphabets, number, special characters.
+
+[0-9]am
+Matches with 9am or 5am, but won't match with sam
+
+[a-z]et
+Matches with set or let, but won't match with 9et
+
+[A-Z]et
+Matches with Set or Let, but won't match set or let or 9et
+
+[a-zA-Z0-9]et
+Matches with Set, set and 9et
+
+[^0-9]et
+Matches with set or let, but not with 9et
+
+se[a-z]
+Matches with sez, sem, set etc, but not with seZ or se9
+
+s[^aeiou]t
+Matches with sft, but not with set or sat or sit or sot or sut
+
+\d
+matches a digit and is equal to specifying [0-9]
+Example: abc\defg
+Accepts abc9efg and Rejects abcdefg
+
+\D
+matches a non-digit and is equal to specifying [^0-9]
+Example: abc\Defg
+Accepts abcdefg and Rejects abc9efg 
+
+\w
+Matches a single word character and is equal to specifying [A-Za-z0-9_]
+
+\W
+Matches a single non-word character and is equal to specifying [^A-Za-z0-9_]
+
+\s
+Matches with any escape characters say \t \n \f \r 
+Short form for [\t\n\x0B\f\r]
+
+\S
+Short form for [^\s]
+
+^My
+Starts with My
+
+Arun$
+Ends with Arun
+
+A..n 
+we can have only 2 characters between A and n and anything alphabets, number, special characters.
+
+^My.*Arun$
+Starts with My and Ends with Arun
+Note: (^ and $ )This is not applicable for single characters it is applicable for only words.
+Note:(.*) means we can have any number of characters or no character between them
+Example: My Arun (matched).
+Example: My name is Arun (matched).
+
+^My.+Arun$
+Starts with My and Ends with Arun
+Note: (^ and $ )This is not applicable for single characters it is applicable for only words.
+Note:(.+) means we can have any number of characters or we can have at least one character 
+Example: My Arun (not matched).
+Example: My name is Arun (matched).
+Example: My is Arun (matched).
+
+^My.?Arun$
+Starts with My and Ends with Arun
+? repeats the . expression 0 or 1 number of times in this example
+MyArun and My Arun are accepted, My name is Arun is not accepted
+My name is Arun is not accepted
+
+^My.{2}Arun$
+Starts with My and Ends with Arun
+{2} repeats the . expression exactly two times in this example
+MyArun, My Arun are not accepted, My  Arun is accepted
+
+Java|java
+Accepts either Java or java
+
+[a-d[m-p]]
+
+Both a to d and m to p will be matched here
+
+[a-z&&[def]]
+Only d or e or f will match
+
+[a-z&&[^bc]]
+a to z except b and c will match
+
+[a-z&&[^m-p]]
+a to z except m to p will match
+
+b?at
+bat or at will match
+
+b+at
+bat or bbat or bbbat will match
+
+b*at
+at or bat or bbat or bbbat will match
+
+b{2}at
+bbat will match
+
+b{2,}at
+bbat will match
+
+b{2,4}at
+bbat or bbbat or bbbbat matches
+
+Note: Here we have a content and we have to extract the link from that
+Example:
+<a href="/b/32702023031?node=32702023031&ld=AZINSOANavDesktop_T3&ref_=nav_cs_sell_T3" class="nav-a  " tabindex="0" data-csa-c-type="link" data-csa-c-slot-id="nav_cs_2" data-csa-c-content-id="nav_cs_sell_T3">Sell</a>
+
+we have to extract :/b/32702023031?node=32702023031&ld=AZINSOANavDesktop_T3&ref_=nav_cs_sell_T3
+Regular expression: <a href="(.*)".*class="nav-a  "
+we have mentioned as (.*) this part will extract the values.
+
+Correlation
+Test Plan >> Add >> Threads >> Thread Group >> Add Number of threads in (Number of Threads (users)).
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+Test Plan >> Add >> Listeners >> View Result Tree.
+Request >> Add >> Post Processors >> Regular Expression Extractors
+Enter the name of the variable.
+Enter the regular expression.
+Enter the group number as $1$ where 1 represents that we have user only one group i.e (.*)
+Enter the Match number.
+Test Plan >> Thread Group >> Add >> Sampler(Requests).
+In the path mention the variable name as ${name_of_variable}.
+Test Plan >> Add >> Listeners >> View Result Tree.
+Click on Start
+
